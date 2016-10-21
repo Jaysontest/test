@@ -1,5 +1,5 @@
 #include <stdio.h>
 main(){
 
-printf("creadt finish!\n");
+printf("creadt finish!  \n");
 }
