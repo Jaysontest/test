@@ -29,4 +29,10 @@ git diff 命令
 2.git diff --cached 将暂存区与本地历史版本区中的最新版本对比
 3.git diff HEAD --bios.c 将本地工作区（包含了暂存区内容）与本地历史版本区里的最新版本对比
 
+查看版本提交的记录 或则历史版本
+git log 或 git log --graph --pretty=oneline 
+简短形式的git log --graph --pretty=oneline --abbrev-commit
+当需要版本回滚的时候 特别重要
+
 */
+
