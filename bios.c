@@ -24,5 +24,9 @@ git clone https://github.com/Jaysontest/test.git
 git push -u origin master // -u 第一次提交记住本地仓库与远程仓库的连接 以后不要重新连接
 
 
+git diff 命令
+1.git diff bios.c 将工作区的修改与暂存区对比
+2.git diff --cached 将暂存区与本地历史版本区中的最新版本对比
+3.git diff HEAD --bios.c 将本地工作区（包含了暂存区内容）与本地历史版本区里的最新版本对比
 
 */
