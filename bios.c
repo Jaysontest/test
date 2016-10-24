@@ -3,7 +3,7 @@ main(){
 scanf("new file %s");
 printf("creadt finish!  \n");
 }
-/*
+
 1.git config --global user.name 'Jasyon'
   git config --global user.email '1@163.com'
  初始化仓库
@@ -79,4 +79,60 @@ git checkout -- filename:将工作区下的文件恢复到暂存区下的状态�
 
 git reset HEAD filename：将暂存区的修改恢复到本地工作区，暂存区将被清空。
 
+***************************************
+***************************************
+git 分支结构
+
+1. 说明
+最常用的分支操作
+2. 命令解释
+查看分支
+
+git branch //查看本地分支
+git branch -r //查看远程分支
+git branch -a //查看所有分支(包括本地和远程)
+创建分支
+
+git branch develop //创建develop分支
+
+切换分支
+git checkout develop //切换到develop分支
+
+
+创建并切换分支
+git checkout -b mdeve //创建并切换到mdeve分支
+
+删除分支
+git branch -d mdeve //删除mdeve分支，强行删除用-D
+
+合并分支默认ff模式
+git merge mdeve //合并mdeve分支到当前分支
+
+默认合并方式是Fast-forward，也就是将要合并的分支直接向当前分支提交。没有提交信息
+解决冲突
+很多时候用Fast-forward方式直接提交是不成功的，因为有冲突存在，所以我们要手动解决冲突
+
+git merge feature1 //合并feature1分支
+不成功的结果如下：
+
+
+Git用<<<<<这个箭头表示HEAD当前分支，====这个为分隔线，>>>>>>这个为feature1分支里的内容，只要手动删除这三处并自己选择内容作为最终结果。
+合并分支禁ff模式合并
+*********************************************************************************
+git merge --no-ff -m "merge no ff" dev //采用no ff模式合并并添加了信息提示
+Fast-forward模式合并直接向当前分支提交，这种模式下如果删除掉分支，就会丢掉分支信息
+如果用no ff这种模式合并,git就会在merge时生成一个新的commit,这样就可以从分支历史里查看出分支信息了。
+暂存临时现场
+
+git stash //把工作现场存储起来，使得工作区干净如初
+主要用于在自己工作到一半，没法提交，然后又有新的bug要修复，就用这个命令保存现场，然后切换到bug分支，修复。
+恢复临时现场
+
+$ git stash list //查看临时工作区保存记录
+  stash@{0}: WIP on dev: 6224937 add merge//这是临时工作区记录列表
+$ git stash apply stash@{0}  //恢复刚刚的临时工作区
+$ git stash drop stash@{0}  //删除刚刚的临时保存记录
+上面的命令已经可以恢复并删除保存记录了，但是语句比较多，还有一种方法直接恢复到最近一次的临时现场：
+
+git stash pop //既恢复工作区又删掉了保存记录
 
